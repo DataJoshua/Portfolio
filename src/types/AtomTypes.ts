@@ -3,3 +3,8 @@ export interface NavLinkProps {
   label :string
   handleOnClick : Function
 }
+
+export interface ButtonProp {
+  label : string
+  handleOnClick : Function
+}
