@@ -9,13 +9,13 @@ const Footer = ()=> {
           <a href="https://github.com/datajoshua" target="_blank">
             <div className="flex gap-3 items-center">
               <img src={githubSvg} alt="github" />
-              <p>@joshuaRod</p>
+              <p className="hover:underline hover:cursor-pointer">@joshuaRod</p>
             </div>
           </a>
           <a href="https://www.linkedin.com/in/rodriguez-joshua/" target="_blank">
             <div className="flex gap-3 items-center">
               <img src={linkedInSvg} alt="linkedin" />
-              <p>@DataJoshua</p>
+              <p className="hover:underline hover:cursor-pointer">@DataJoshua</p>
             </div>
           </a>
         </div>
