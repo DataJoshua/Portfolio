@@ -5,7 +5,7 @@ const FormInput = ({label, name, hasButton = false, handleOnClick = ()=>{}, isTe
 
   return (
     <>
-      <div className={`flex gap-5 w-[100%] items-center`}>
+      <div className="min-w-[100%] py-8 flex gap-3 items-center justify-center">
         <label className="text text-xl">{label}</label>
         {isTextArea? <textarea className={fromStyles + " max-h-[300px] min-h-[90px]"} name={name}/> : <input className={fromStyles} type={type} name={name}/>}
         {hasButton && <button onClick={()=> handleOnClick()}>Next</button>}
