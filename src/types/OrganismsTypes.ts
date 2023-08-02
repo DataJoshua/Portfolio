@@ -6,8 +6,11 @@ export interface FloatingNavProps {
 export interface FormInputProps {
   name : string
   label : string
-  handleOnClick? : Function
+  handleOnNext? : Function
+  handleOnPrev? : Function
   hasButton? : boolean
+  state? : boolean
+  isSubmit? : boolean
   isTextArea? : boolean
   type? : string
 }
