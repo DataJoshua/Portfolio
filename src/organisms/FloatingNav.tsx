@@ -22,7 +22,7 @@ const FloatingNav = ({isHidden, toggleNav} : FloatingNavProps)=> {
     </div>
       <ul className="flex flex-col gap-10">
         <NavLink path="/" label="home" handleOnClick={()=> toggleNav()}/>
-        <NavLink path="/contacts" label="contact" handleOnClick={()=> toggleNav()}/>
+        <NavLink path="/contact" label="contact" handleOnClick={()=> toggleNav()}/>
         <NavLink path="/projects" label="projects" handleOnClick={()=> toggleNav()}/>
         <NavLink path="/about" label="about" handleOnClick={()=> toggleNav()}/>
       </ul>
