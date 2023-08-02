@@ -2,7 +2,7 @@ import { FormButtonProps } from "../types/AtomTypes";
 
 const FormButton = ({ label , handleOnClick = ()=>{} , isInput = false } : FormButtonProps)=> {
   
-  const styles = "py-6 px-3 bg-blue-300";
+  const styles = "py-2 px-4 bg-blue-800 text-white rounded border-b-4 border-indigo-200 hover:cursor-pointer hover:bg-blue-700";
 
   return (
     <>
