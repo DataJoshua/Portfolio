@@ -9,6 +9,8 @@ const Contact = () => {
     console.log("submiting.............");
 
     const { email, title, message } = e.currentTarget.elements;
+
+    
   }
 
   return(

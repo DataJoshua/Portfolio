@@ -14,7 +14,7 @@ const FloatingNav = ({isHidden, toggleNav} : FloatingNavProps)=> {
     <motion.div 
       animate={isHidden ? "closed" : "open"}
       variants={variants}
-      className={`fixed lg:left-[75%] right-0 bg-slate-900 top-0 h-full w-[50%] lg:w-[25%] justify-center flex pt-[100px]`}
+      className={`fixed lg:left-[75%] z-[100] right-0 bg-slate-900 top-0 h-full w-[50%] lg:w-[25%] justify-center flex pt-[100px]`}
     >
 
     <div className="absolute top-5 right-5 hover:cursor-pointer" onClick={()=>toggleNav()}>
