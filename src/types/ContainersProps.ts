@@ -13,3 +13,7 @@ interface FormInputs extends HTMLFormControlsCollection{
 export interface ContactFormInputs extends HTMLFormElement {
   readonly elements: FormInputs
 }
+
+export interface InputsContainersProps {
+  formState? : number
+}
