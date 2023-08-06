@@ -8,14 +8,12 @@ import { Payload } from "../context/ContextTypes";
 const Contact = () => {
 
   const { client } = useContext(SupaContext) as Payload;
-  const [state, setState] = useState<number>(0);
 
   const handleOnSubmit = async (e : React.FormEvent<ContactFormInputs>) => {
     e.preventDefault();
     console.log("submiting.............");
 
     const { email, title, message } = e.currentTarget.elements;
-
   
     const { status, error } = await client.from("Forms").insert({
       email: email.value,
@@ -25,7 +23,9 @@ const Contact = () => {
 
     if(status === 201){
       console.log("created");
-      setState(0);
+      email.value = "";
+      title.value = "";
+      message.value = "";
     }    
     else{
       console.log(error);
@@ -35,9 +35,10 @@ const Contact = () => {
   return(
     <>
       <FrameContainer>
-        <article className="bg-slate-800 max-w-lg m-auto my-8">
-          <form action="#" className="flex gap-8 items-center gap-4 overflow-hidden" onSubmit={handleOnSubmit}>
-            <InputsContainer formState={state}/>
+        <article className="max-w-xs sm:max-w-sm m-auto my-8 flex flex-col gap-3 sm:gap-20">
+          <h1 className="text-center text-2xl font-bold">Contact Me</h1>
+          <form action="#" onSubmit={handleOnSubmit}>
+            <InputsContainer/>
           </form>
         </article>
       </FrameContainer>
