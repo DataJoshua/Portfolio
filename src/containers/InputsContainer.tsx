@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 import FormInput from "../organisms/FormInput";
+import { InputsContainersProps } from "../types/ContainersProps";
 
-const InputsContainer = () => {
+const InputsContainer = ({ formState = 0 } : InputsContainersProps) => {
 
   const states = useRef<Array<Array<number>>>([[1,0,0], [0,1,0], [0,0,1]]);
-  const [state, setState] = useState<number>(0);
+  const [state, setState] = useState<number>(formState);
 
   const handleOnNext = (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
