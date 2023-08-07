@@ -14,3 +14,9 @@ export interface FormInputProps {
   isTextArea? : boolean
   type? : string
 }
+
+export interface ProjectProps {
+  title : string
+  description : string
+  image : string
+}

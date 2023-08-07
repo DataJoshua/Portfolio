@@ -12,6 +12,24 @@ export interface Payload {
 export interface Database {
   public: {
     Tables: {
+      projects: {
+        Row: {
+          title : string
+          description : string
+          image : string
+        }
+        Insert: {
+          title : string
+          description : string
+          image : string
+        } 
+        Update: {
+          title : string
+          description : string
+          image : string
+        } 
+      },
+
       forms: {
         Row: {
           email : string
