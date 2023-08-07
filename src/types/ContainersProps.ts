@@ -15,5 +15,5 @@ export interface ContactFormInputs extends HTMLFormElement {
 }
 
 export interface InputsContainersProps {
-  formState? : number
+
 }

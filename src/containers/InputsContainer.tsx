@@ -2,10 +2,10 @@ import { useRef, useState } from "react";
 import FormInput from "../organisms/FormInput";
 import { InputsContainersProps } from "../types/ContainersProps";
 
-const InputsContainer = ({ formState = 0 } : InputsContainersProps) => {
+const InputsContainer = ({} : InputsContainersProps) => {
 
   const states = useRef<Array<Array<number>>>([[1,0,0], [0,1,0], [0,0,1]]);
-  const [state, setState] = useState<number>(formState);
+  const [state, setState] = useState<number>(0);
 
   const handleOnNext = (e : React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -20,20 +20,20 @@ const InputsContainer = ({ formState = 0 } : InputsContainersProps) => {
   return(
     <>
       <FormInput 
-        label="email:" 
+        label="Email" 
         name="email" 
         state={!!states.current[state][0]} 
         handleOnNext={handleOnNext}
       />
       <FormInput 
-        label="title:" 
+        label="Title" 
         name="title"
         state={!!states.current[state][1]} 
         handleOnNext={handleOnNext}
         handleOnPrev={handleOnPrev}
       />
       <FormInput 
-        label="message:" 
+        label="Message" 
         name="message" 
         state={!!states.current[state][2]} 
         handleOnPrev={handleOnPrev}
