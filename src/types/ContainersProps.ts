@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ProjectProps } from "./OrganismsTypes";
 
 export interface FrameContainerProp {
   children : ReactNode
@@ -16,4 +17,8 @@ export interface ContactFormInputs extends HTMLFormElement {
 
 export interface InputsContainersProps {
 
+}
+
+export interface ProjectsContainerProps {
+  projects: Array<ProjectProps> | []
 }
