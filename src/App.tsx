@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Nav from './templates/Nav';
 import Contact from './pages/Contact';
 import SupaProvider from './context/SupaProvider';
+import Projects from './pages/Projects';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}></Route>
             <Route path="/contact" element={<Contact/>}></Route>
+            <Route path="/projects" element={<Projects/>}></Route>
           </Routes>
         </SupaProvider>
       </div>
