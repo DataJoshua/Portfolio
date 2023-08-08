@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ProjectProps } from "../types/OrganismsTypes";
-import { motion } from "framer-motion";
+import { Variant, delay, motion } from "framer-motion";
 
 const Project = ( {title, description, image} : ProjectProps ) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -9,14 +9,21 @@ const Project = ( {title, description, image} : ProjectProps ) => {
     "close": { display: "hidden", scale: 0 }
   }
 
+  const variants2 = {
+    "appear": { opacity: 1 },
+    "disappear": { opacity: 0 }
+  }
+
   return (
-    <div className="relative inline-block" onMouseOver={()=> setIsOpen(true)} onMouseLeave={()=> setIsOpen(false)}>
-      <motion.div animate={isOpen ? "open" : "close"} variants={variants} className="absolute rounded-xl flex justify-center items-center flex-col inset-0 bg-[#999b]">
-        <h1 className="font-bold text-3xl">{title}</h1>
-        <p>{description}</p>
+    <div className="relative hover:cursor-pointer" onMouseOver={()=> setIsOpen(true)} onMouseLeave={()=> setIsOpen(false)}>
+      <motion.div  animate={isOpen ? "appear" : "disappear"} variants={variants2} transition={{duration : .5}} className="absolute rounded-xl inset-0 bg-[#999b]">
+        <motion.div className="flex justify-center items-center flex-col w-full h-full" transition={{delay: .2}} animate={isOpen ? "open" : "close"} variants={variants}>
+          <h1 className="font-bold text-3xl">{title}</h1>
+          <p>{description}</p>
+        </motion.div>
       </motion.div>
       <div className="rounded-xl overflow-hidden">
-        <img className="w-full" src={image} alt="" />    
+        <img className="w-full" src={image} alt="" />  
       </div>
     </div>
   );
