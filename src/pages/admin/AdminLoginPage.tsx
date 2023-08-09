@@ -1,9 +1,8 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { FormEvent, useContext} from "react";
 import FrameContainer from "../../containers/FrameContainer";
 import FormInput from "../../organisms/FormInput";
 import { SupaContext } from "../../context/SupaContext";
 import { AdminForm, Payload } from "../../context/ContextTypes";
-import { Session } from "@supabase/supabase-js";
 
 const AdminLoginPage = () => {
   

@@ -3,20 +3,13 @@ import { SupaContext } from "../context/SupaContext";
 import { Payload } from "../context/ContextTypes";
 import { Session } from "@supabase/supabase-js";
 import AdminLoginPage from "./admin/AdminLoginPage";
+import AdminDashboard from "./admin/AdminDashboard";
 
 const Admin = () => {
 
   const {client} = useContext(SupaContext) as Payload;
 
   const [session, setSession] = useState<Session | null>(null)
-
-  const handleLogOut = async ()=> {
-    const {error} = await client.auth.signOut();
-
-    if(!error){
-      console.log("sign out");
-    }
-  }
 
   useEffect(() => {
     client.auth.getSession().then(({ data: { session } }) => {
@@ -34,9 +27,7 @@ const Admin = () => {
 
   if(!session) return <AdminLoginPage/>
 
-  return <>
-    <button onClick={handleLogOut}>Log Out</button>
-  </>
+  return <AdminDashboard/>
 };
 
 export default Admin;

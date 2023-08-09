@@ -25,7 +25,6 @@ const FloatingNav = ({isHidden, toggleNav} : FloatingNavProps)=> {
         <NavLink path="/contact" label="contact" handleOnClick={()=> toggleNav()}/>
         <NavLink path="/projects" label="projects" handleOnClick={()=> toggleNav()}/>
         <NavLink path="/about" label="about" handleOnClick={()=> toggleNav()}/>
-        <NavLink path="/admin" label="admin" handleOnClick={()=> toggleNav()}/>
       </ul>
     </motion.div>
   )
