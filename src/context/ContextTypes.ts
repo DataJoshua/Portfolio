@@ -50,3 +50,12 @@ export interface Database {
     }
   }
 }
+
+interface AdminFormPayload extends HTMLFormControlsCollection{
+  email: HTMLInputElement
+  password : HTMLInputElement
+}
+
+export interface AdminForm extends HTMLFormElement{
+  readonly elements : AdminFormPayload
+}

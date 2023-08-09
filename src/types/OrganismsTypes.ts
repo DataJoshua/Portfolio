@@ -13,6 +13,7 @@ export interface FormInputProps {
   isSubmit? : boolean
   isTextArea? : boolean
   type? : string
+  submitLabel? : string
 }
 
 export interface ProjectProps {
