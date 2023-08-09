@@ -2,7 +2,7 @@ import FormButton from "../atoms/FormButton";
 import { FormInputProps } from "../types/OrganismsTypes";
 import { motion } from "framer-motion";
 
-const FormInput = ({label, name, state, handleOnNext, handleOnPrev, isTextArea = false, isSubmit = false, type ="text"}: FormInputProps ) => {
+const FormInput = ({label, name, state, handleOnNext, handleOnPrev, isTextArea = false, isSubmit = false, type ="text", submitLabel = "d"}: FormInputProps ) => {
   const formStyles = "px-3 sm:px-4 sm:py-6 sm:text-2xl w-full py-2 text-[#000] outline-none rounded border-b-4 border-indigo-600 focus:border-blue-500 transition"
 
   const variants = {
@@ -19,7 +19,7 @@ const FormInput = ({label, name, state, handleOnNext, handleOnPrev, isTextArea =
         <div className="flex min-h-full gap-8">
           {handleOnPrev && <FormButton label="prev" handleOnClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=> handleOnPrev(e)} />}
           {handleOnNext && <FormButton label="next" handleOnClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=> handleOnNext(e)} />}
-          {isSubmit && <FormButton label="Submit" isInput/>}
+          {isSubmit && <FormButton label={submitLabel} isInput/>}
         </div>
       </motion.div>
     </>

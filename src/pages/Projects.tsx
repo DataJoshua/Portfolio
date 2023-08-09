@@ -19,14 +19,19 @@ const Projects = () => {
     if(!error){      
       setProjects(data);
       setIsLoading(false);
+
+      const session = await client.auth.getSession();
+      console.log(session.data);
+      
     }
     else{
       console.log(error);
     }
   }
 
-  useEffect(()=>{
+  useEffect(() =>{
     makeApiCall();
+  
   }, []);
 
   return (
