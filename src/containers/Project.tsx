@@ -18,7 +18,7 @@ const Project = ( {id, title, description, image} : ProjectProps ) => {
   }
   
   return (
-    <div onClick={()=> navigate(`/project/${id}`)} className="relative hover:cursor-pointer" onMouseOver={()=> setIsOpen(true)} onMouseLeave={()=> setIsOpen(false)}>
+    <div onClick={()=> navigate(`/projects/${id}`)} className="relative hover:cursor-pointer" onMouseOver={()=> setIsOpen(true)} onMouseLeave={()=> setIsOpen(false)}>
       <motion.div  animate={isOpen ? "appear" : "disappear"} variants={variants2} transition={{duration : .5}} className="absolute rounded-xl inset-0 bg-[#999b]">
         <motion.div className="flex justify-center items-center flex-col w-full h-full" transition={{delay: .2}} animate={isOpen ? "open" : "close"} variants={variants}>
           <h1 className="font-bold text-4xl">{title}</h1>

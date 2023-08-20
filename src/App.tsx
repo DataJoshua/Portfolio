@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import SupaProvider from './context/SupaProvider';
 import Projects from './pages/Projects';
 import Admin from './pages/Admin';
+import ProjectShow from './pages/ProjectShow';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/contact" element={<Contact/>}></Route>
             <Route path="/projects" element={<Projects/>}></Route>
             <Route path="/admin" element={<Admin/>}></Route>
+            <Route path="projects/:id" element={<ProjectShow/>}></Route>
           </Routes>
         </SupaProvider>
       </div>
