@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { ProjectProps } from "../types/OrganismsTypes";
 import { Variant, delay, motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
-const Project = ( {title, description, image} : ProjectProps ) => {
+const Project = ( {id, title, description, image} : ProjectProps ) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
+
   const variants = {
     "open": { display: "flex", scale: 1 },
     "close": { display: "hidden", scale: 0 }
@@ -13,13 +16,12 @@ const Project = ( {title, description, image} : ProjectProps ) => {
     "appear": { opacity: 1 },
     "disappear": { opacity: 0 }
   }
-
+  
   return (
-    <div className="relative hover:cursor-pointer" onMouseOver={()=> setIsOpen(true)} onMouseLeave={()=> setIsOpen(false)}>
+    <div onClick={()=> navigate(`/projects/${id}`)} className="relative hover:cursor-pointer" onMouseOver={()=> setIsOpen(true)} onMouseLeave={()=> setIsOpen(false)}>
       <motion.div  animate={isOpen ? "appear" : "disappear"} variants={variants2} transition={{duration : .5}} className="absolute rounded-xl inset-0 bg-[#999b]">
         <motion.div className="flex justify-center items-center flex-col w-full h-full" transition={{delay: .2}} animate={isOpen ? "open" : "close"} variants={variants}>
-          <h1 className="font-bold text-3xl">{title}</h1>
-          <p>{description}</p>
+          <h1 className="font-bold text-4xl">{title}</h1>
         </motion.div>
       </motion.div>
       <div className="rounded-xl overflow-hidden">
