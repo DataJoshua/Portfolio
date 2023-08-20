@@ -29,7 +29,7 @@ const AdminLoginPage = () => {
         <div className="max-w-sm">
           <h1 className="my-8 text-center text-3xl">Login</h1>
           <div>
-            <h2>Signed in</h2>
+            <h2>Sign in</h2>
           </div>
           <form method="post" onSubmit={handleLogIn}>
             <FormInput label="email" name="email" state/>
