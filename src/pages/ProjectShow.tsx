@@ -19,8 +19,8 @@ const ProjectShow = () => {
                              .select()
                              .eq("id", id);
     if(!error){
-      setIsLoading(false);
       setProject(data[0] as ProjectProps);
+      setIsLoading(false);
     }
   }
 
@@ -32,9 +32,11 @@ const ProjectShow = () => {
 
   return( 
     <>
-      <h1>{project?.title}</h1>
-      <p>{project?.description}</p>
-      <img src={project?.image} alt={project?.title} />
+      <h1 className="text-4xl font-bold text-center mb-8">{project?.title}</h1>
+      <p className="text-2xl text-center mb-8">{project?.description}</p>
+      <div className="flex justify-center">
+        <img src={project?.image} alt={project?.title} />
+      </div>
     </>
   );
 }
