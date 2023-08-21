@@ -17,16 +17,19 @@ export interface Database {
           title : string
           description : string
           image : string
+          gitUrl: string
         }
         Insert: {
           title : string
           description : string
           image : string
+          gitUrl: string
         } 
         Update: {
           title : string
           description : string
           image : string
+          gitUrl: string
         } 
       },
 
@@ -35,16 +38,19 @@ export interface Database {
           email : string
           title : string
           message : string
+          gitUrl: string
         }
         Insert: {
           email : string
           title : string
           message : string
+          gitUrl: string
         } 
         Update: {
           email : string
           title : string
           message : string
+          gitUrl: string
         } 
       }
     }

@@ -34,6 +34,7 @@ const ProjectShow = () => {
     <>
       <h1 className="text-4xl font-bold text-center mb-8">{project?.title}</h1>
       <p className="text-2xl text-center mb-8">{project?.description}</p>
+      <a className="block hover:cursor-pointer hover:underline text-center" href={project?.gitUrl} target="_blank">Visit Github code</a>
       <div className="flex justify-center">
         <img src={project?.image} alt={project?.title} />
       </div>
