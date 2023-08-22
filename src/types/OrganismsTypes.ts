@@ -21,6 +21,7 @@ export interface ProjectProps {
   title : string
   description : string
   image : string
+  gitUrl: string
 }
 
 export interface ErrorElementProps {
