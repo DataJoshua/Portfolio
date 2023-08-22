@@ -13,7 +13,7 @@ function AdminDashboard() {
 
   const handleOnSubmit = async (e : FormEvent<ProjectFormElement>) => {
     e.preventDefault();
-    const {title, description, image} = e.currentTarget.elements;
+    const {title, description, image, gitUrl} = e.currentTarget.elements;
 
     const file = image.files?.item(0);
     
@@ -30,8 +30,12 @@ function AdminDashboard() {
           const { status, error } = await client.from("projects").insert({
             title: title.value,
             description: description.value,
+            gitUrl : gitUrl.value,
             image: publicUrl
           })
+
+          console.log(status, error);
+          
         }
       }     
     }
@@ -47,6 +51,7 @@ function AdminDashboard() {
         <form action="post" onSubmit={handleOnSubmit}>
           <FormInput label="title" name="title" state/>
           <FormInput label="description" name="description" state/>
+          <FormInput label="repo url" name="gitUrl" state/>
           <FormInput label="image" name="image" type="file" isSubmit state/>
         </form>
       </div>
