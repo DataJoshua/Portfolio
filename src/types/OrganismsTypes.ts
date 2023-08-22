@@ -22,3 +22,7 @@ export interface ProjectProps {
   description : string
   image : string
 }
+
+export interface ErrorElementProps {
+  text : string
+}

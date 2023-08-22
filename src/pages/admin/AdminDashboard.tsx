@@ -4,14 +4,18 @@ import { Payload } from "../../context/ContextTypes";
 import FormInput from "../../organisms/FormInput";
 import { ProjectFormElement } from "../../types/AdminTypes";
 import { nanoid } from "nanoid";
-import { error, log } from "console";
+import NotificationElement from "../../organisms/NotificationElement";
+import FormButton from "../../atoms/FormButton";
+import Spinner from "../../atoms/Spinner";
 
 function AdminDashboard() {
  
   const {client} = useContext(SupaContext) as Payload;
-  const [errors, setErrors] = useState<boolean>(false)
+  const [notification, setNotification] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const handleOnSubmit = async (e : FormEvent<ProjectFormElement>) => {
+    setIsLoading(true);
     e.preventDefault();
     const {title, description, image} = e.currentTarget.elements;
 
@@ -31,23 +35,47 @@ function AdminDashboard() {
             title: title.value,
             description: description.value,
             image: publicUrl
-          })
+          });
+
+          if(!error){
+            title.value = "";
+            description.value = "";
+            image.files = null;
+
+            setNotification("Project created succesfully!");
+            setIsLoading(false);
+          }
+          else {
+            setNotification("project Is not saved, try again");
+          }
         }
-      }     
+        else {
+          setNotification("The public url has not been created!");
+        }
+      }
+      else {
+        setNotification("The image has not been save, try again!");
+      }  
     }
     else{
-      setErrors(true);
+      setNotification("The file must be present!");
+      setIsLoading(false);
     }
   }
-
+  
   return (
     <div>
+      {notification && <NotificationElement text={notification}/>}
       <h1 className="text-3xl text-center my-8">Create new Project</h1>
       <div className="max-w-lg m-auto">
-        <form action="post" onSubmit={handleOnSubmit}>
+        <form action="post" className="flex flex-col items-center" onSubmit={handleOnSubmit}>
           <FormInput label="title" name="title" state/>
           <FormInput label="description" name="description" state/>
-          <FormInput label="image" name="image" type="file" isSubmit state/>
+          <FormInput label="image" name="image" type="file" state/>
+          <div className="flex gap-[50px] items-center justify-center">
+            <FormButton isInput label="Create Project"/>
+           {isLoading && <Spinner size="20px"/>}
+          </div>
         </form>
       </div>
     </div>
