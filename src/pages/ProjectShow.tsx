@@ -28,7 +28,7 @@ const ProjectShow = () => {
     setProjects();
   }, []);
 
-  if(isLoading) return <Spinner/>
+  if(isLoading) return <Spinner hasMargin hasText/>
 
   return( 
     <>

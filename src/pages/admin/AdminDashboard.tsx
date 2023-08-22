@@ -41,7 +41,8 @@ function AdminDashboard() {
           if(!error){
             title.value = "";
             description.value = "";
-            image.files = null;
+            gitUrl.value = "";
+            image.value = "";
 
             setNotification("Project created succesfully!");
             setIsLoading(false);
@@ -72,10 +73,12 @@ function AdminDashboard() {
         <form action="post" className="flex flex-col items-center" onSubmit={handleOnSubmit}>
           <FormInput label="title" name="title" state/>
           <FormInput label="description" name="description" state/>
+          <FormInput label="Repo Link" name="gitUrl" state/>
           <FormInput label="image" name="image" type="file" state/>
+
           <div className="flex gap-[50px] items-center justify-center">
             <FormButton isInput label="Create Project"/>
-           {isLoading && <Spinner size="20px"/>}
+           {isLoading && <Spinner size={20}/>}
           </div>
         </form>
       </div>

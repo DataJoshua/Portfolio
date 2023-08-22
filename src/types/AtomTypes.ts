@@ -23,5 +23,5 @@ export interface FormButtonProps {
 export interface SpinnerProps {
   hasMargin? : boolean
   hasText? : boolean
-  size? : string
+  size? : number
 }
