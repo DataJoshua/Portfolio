@@ -7,6 +7,7 @@ import { nanoid } from "nanoid";
 import NotificationElement from "../../organisms/NotificationElement";
 import FormButton from "../../atoms/FormButton";
 import Spinner from "../../atoms/Spinner";
+import FrameContainer from "../../containers/FrameContainer";
 
 function AdminDashboard() {
  
@@ -66,7 +67,7 @@ function AdminDashboard() {
   }
   
   return (
-    <div>
+    <FrameContainer>
       {notification && <NotificationElement text={notification}/>}
       <h1 className="text-3xl text-center my-8">Create new Project</h1>
       <div className="max-w-lg m-auto">
@@ -82,7 +83,7 @@ function AdminDashboard() {
           </div>
         </form>
       </div>
-    </div>
+    </FrameContainer>
   );
 }
 
