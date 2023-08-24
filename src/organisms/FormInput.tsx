@@ -14,7 +14,7 @@ const FormInput = ({label, name, state, handleOnNext, handleOnPrev, isTextArea =
     <>
       <motion.div initial={{x: "100%"}} animate={state ? "enter" : "close"} variants={variants} className={`min-w-[100%] flex py-8 flex-col gap-5 items-center justify-center ${state ? "" : "hidden"}`}>
         <div className="w-full">
-          {isTextArea? <textarea className={formStyles + " max-h-[300px] min-h-[90px]"} name={name} placeholder={label}/> : <input className={formStyles} type={type} name={name} placeholder={label}/>}
+          {isTextArea? <textarea className={formStyles + " max-h-[300px] min-h-[90px]"} name={name} placeholder={label}/> : <input className={formStyles} type={type} name={name} multiple={type === "file"} placeholder={label}/>}
         </div>
         <div className="flex min-h-full gap-8">
           {handleOnPrev && <FormButton label="prev" handleOnClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=> handleOnPrev(e)} />}

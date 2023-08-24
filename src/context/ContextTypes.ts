@@ -16,19 +16,19 @@ export interface Database {
         Row: {
           title : string
           description : string
-          image : string
+          images : Array<String>
           gitUrl: string
         }
         Insert: {
           title : string
           description : string
-          image : string
+          images : Array<String>
           gitUrl: string
         } 
         Update: {
           title : string
           description : string
-          image : string
+          images : Array<String>
           gitUrl: string
         } 
       },

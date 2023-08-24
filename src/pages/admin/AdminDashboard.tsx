@@ -20,50 +20,56 @@ function AdminDashboard() {
     e.preventDefault();
     const {title, description, image, gitUrl} = e.currentTarget.elements;
 
-    const file = image.files?.item(0);
+    const files = image.files as FileList;
+    const filesPaths = [];
     
-    if(file){
+    for(let i = 0; i < files.length; i++) {
+
+      const file = files.item(i);
       const { data : imgdata, error: imgUploadError} = await client
                                           .storage
                                           .from("projects")
-                                          .upload(`public/${nanoid()}_${file.name}`, file);
+                                          .upload(`public/${nanoid()}_${file?.name}`, file as File)
+      if(imgUploadError){
+        setIsLoading(false);
+        setNotification(`There was an error uploading the image named: ${file?.name}!, try again`);
 
-      if(!imgUploadError){
-        const {data : {publicUrl}} = client.storage.from("projects").getPublicUrl(imgdata.path);      
-        
-        if(publicUrl){
-          const { status, error } = await client.from("projects").insert({
-            title: title.value,
-            description: description.value,
-            gitUrl : gitUrl.value,
-            image: publicUrl
-          });
-
-          if(!error){
-            title.value = "";
-            description.value = "";
-            gitUrl.value = "";
-            image.value = "";
-
-            setNotification("Project created succesfully!");
-            setIsLoading(false);
-          }
-          else {
-            setNotification("project Is not saved, try again");
-          }
-        }
-        else {
-          setNotification("The public url has not been created!");
-        }
+        return;
       }
-      else {
-        setNotification("The image has not been save, try again!");
-      }  
+
+      const {data : {publicUrl}} = client.storage.from("projects").getPublicUrl(imgdata.path); 
+
+      if(!publicUrl){
+        setIsLoading(false);
+        setNotification(`The public Url was not received from the DB for the file named: ${file?.name}`);
+
+        return;
+      }
+
+      filesPaths.push(publicUrl); 
     }
-    else{
-      setNotification("The file must be present!");
+
+    const { status, error } = await client.from("projects").insert({
+      title: title.value,
+      description: description.value,
+      gitUrl : gitUrl.value,
+      images: filesPaths
+    });
+
+    if(error){
       setIsLoading(false);
+      setNotification(`The project was not saved, status: ${status}, ${error.message}`);
+
+      return;
     }
+
+    title.value = "";
+    description.value = "";
+    gitUrl.value = "";
+    image.value = "";
+
+    setNotification("Project created succesfully!");
+    setIsLoading(false);
   }
   
   return (
