@@ -6,7 +6,7 @@ const FormButton = ({ label , handleOnClick = ()=>{} , isInput = false } : FormB
 
   return (
     <>
-      {isInput ? <input type="submit" className={styles} /> : <button 
+      {isInput ? <input value={label} type="submit" className={styles} /> : <button 
                                               className={styles}
                                               onClick={(e : React.MouseEvent<HTMLButtonElement, MouseEvent>)=> handleOnClick(e)}
                                             >

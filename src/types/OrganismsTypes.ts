@@ -23,3 +23,7 @@ export interface ProjectProps {
   image : string
   gitUrl: string
 }
+
+export interface ErrorElementProps {
+  text : string
+}

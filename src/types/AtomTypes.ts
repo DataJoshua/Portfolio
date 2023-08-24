@@ -19,3 +19,9 @@ export interface FormButtonProps {
   isInput? : boolean
   handleOnClick? : Function
 }
+
+export interface SpinnerProps {
+  hasMargin? : boolean
+  hasText? : boolean
+  size? : number
+}

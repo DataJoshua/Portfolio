@@ -37,7 +37,7 @@ const Projects = () => {
   return (
     <FrameContainer>
       <h1 className="text-3xl font-bold my-8 text-center text-white">My Projects</h1>
-      {isLoading ? <Spinner/> : <ProjectsContainer projects={projects}/> }
+      {isLoading ? <Spinner hasMargin hasText/> : <ProjectsContainer projects={projects}/> }
     </FrameContainer>
   );
 };
