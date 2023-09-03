@@ -3,7 +3,7 @@ import { ProjectProps } from "../types/OrganismsTypes";
 import { Variant, delay, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-const Project = ( {id, title, description, image} : ProjectProps ) => {
+const Project = ( {id, title, description, images} : ProjectProps ) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ const Project = ( {id, title, description, image} : ProjectProps ) => {
         </motion.div>
       </motion.div>
       <div className="rounded-xl overflow-hidden">
-        <img className="w-full" src={image} alt="" />  
+        <img className="w-full" src={images[0] as string} alt="" />  
       </div>
     </div>
   );
